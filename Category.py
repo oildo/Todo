@@ -11,6 +11,9 @@ class Category:
     
     def addTask(self, task):
         self.tasks.append(task)
+
+    def removeTask(self, index):
+        del self.tasks[index]
     
     def getTask(self, index):
         return self.tasks[index]

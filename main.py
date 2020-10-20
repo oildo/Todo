@@ -27,9 +27,14 @@ def readTdl(directory):
     tdl.close()
     return out
 
-def writeTdl(directory):
-    #TODO
-    pass
+def writeTdl(directory, todoList):
+    f = open(directory, "w")
+
+    for categorie in todoList:
+        f.write(f".{categorie.getName()}\n")
+        for task in categorie.getTasks():
+            f.write(f"{task}\n")
+    f.close()
 
 def printTasks(todoList, printCategories=True):
     print("")
@@ -47,3 +52,4 @@ a = readTdl("DATA/main.tdl")
 
 printTasks(a)
 printTasks(a, False)
+writeTdl("DATA/new.tdl", a)
